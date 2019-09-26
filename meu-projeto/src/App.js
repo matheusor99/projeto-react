@@ -1,15 +1,28 @@
 import React, { Component } from "react";
-import Component2 from "./Component2";
+import Botao from "./Botao";
+import Titulo from "./Titulo";
 
 export default class App extends Component{
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      actualBtn: ''
+    }
+  }
+
+  handleChange = (name) => {
+    this.setState({
+      actualBtn: name
+    })
+  }
+
   render() {
     return (
-      <React.Fragment>
-        <h1>Hello Word!!!</h1>
-        <h2>Olá Mundo!</h2>
-        <Component2 nome="Matheus" idade="20"/>
-        <Component2 nome="Felipe" idade="19"/>
-      </React.Fragment>
+      <>
+        <Titulo titulo={this.state.actualBtn}/>
+        <Botao change={this.handleChange} name='Botão 1'/>
+      </>
     );
   }
 }
