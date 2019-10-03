@@ -1,28 +1,13 @@
 import React, { Component } from "react";
-import Botao from "./Botao";
-import Titulo from "./Titulo";
+import Home from './pages/home/Home';
+import Signup from './pages/signup/Signup'
+import Step1 from './pages/signup/step1/Step1'
+import './template-bootcamp/template/assets/css/normalize.css'
+import './template-bootcamp/template/assets/css/template.css'
+import './template-bootcamp/template/assets/css/style.css'
 
 export default class App extends Component{
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      actualBtn: ''
-    }
-  }
-
-  handleChange = (name) => {
-    this.setState({
-      actualBtn: name
-    })
-  }
-
   render() {
-    return (
-      <>
-        <Titulo titulo={this.state.actualBtn}/>
-        <Botao change={this.handleChange} name='Botão 1'/>
-      </>
-    );
+    return <Signup/>
   }
 }
