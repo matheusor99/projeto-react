@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Step1 from './step1/Step1'
+import Step2 from './step2/Step2'
+import Congrats from './congrats/Congrats'
 
 export default class Signup extends Component {
     constructor(props) {
@@ -25,11 +27,11 @@ export default class Signup extends Component {
     handleActualPage = () => {
         switch(this.state.actualPage) {
             case 1:
-                return <h1>Pagina 2</h1>
+                return <Step2 change={this.handleChangePage}/>
             case 2:
-                return <h1>Pagina 3</h1>
+                return <Congrats name={this.state.info[0].name}/>
             default:
-                return <Step1/>
+                return <Step1 change={this.handleChangePage}/>
         }
     }
 

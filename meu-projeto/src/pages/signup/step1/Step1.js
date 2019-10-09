@@ -9,7 +9,7 @@ export default class Step1 extends Component {
             name: '',
             date: '',
             cpf: 0,
-            agree: 'off'
+            agree: false
         }
     }
 
@@ -23,6 +23,13 @@ export default class Step1 extends Component {
 
         this.setState(state);
     }
+
+    isChecked = () => {
+        this.setState(prevState=>({
+            agree: !prevState.agree
+        }))
+    }
+
     render() {
         console.log(this.state)
         return(
@@ -37,7 +44,7 @@ export default class Step1 extends Component {
                     </div>
         
                     <div className="formContainer">
-                        <form action="./step2.html">
+                        <form onSubmit={() => this.props.change(1, this.state)}>
                             <label className="cursorP" htmlFor="name">Nome</label>
                             <input onChange={(event) => this.handleChange(event)} id="name" type="text" placeholder="Roberto Silva" />
                             <label className="cursorP" htmlFor="date">Data de nascimento</label>
